@@ -10269,7 +10269,7 @@
     .local v1, "reason":I
     new-instance v2, Lorg/codeaurora/ims/sms/SmsResponse;
 
-    invoke-direct {v2, p0, v0, v1}, Lorg/codeaurora/ims/sms/SmsResponse;-><init>(III)V
+    invoke-direct {v2, p0, v0, v1, p3}, Lorg/codeaurora/ims/sms/SmsResponse;-><init>(IIII)V
 
     return-object v2
 .end method

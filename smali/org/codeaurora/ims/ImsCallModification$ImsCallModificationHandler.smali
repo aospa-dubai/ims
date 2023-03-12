@@ -23,13 +23,13 @@
     .locals 0
     .param p1, "this$0"    # Lorg/codeaurora/ims/ImsCallModification;
 
-    .line 652
+    .line 653
     iput-object p1, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
-    .line 653
+    .line 654
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
-    .line 654
+    .line 655
     return-void
 .end method
 
@@ -38,20 +38,20 @@
     .param p1, "this$0"    # Lorg/codeaurora/ims/ImsCallModification;
     .param p2, "looper"    # Landroid/os/Looper;
 
-    .line 656
+    .line 657
     iput-object p1, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
-    .line 657
+    .line 658
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 658
+    .line 659
     return-void
 .end method
 
 .method private clearMultiTaskRetryCount()I
     .locals 2
 
-    .line 786
+    .line 787
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -78,7 +78,7 @@
 
     invoke-static {p0, v0}, Lcom/qualcomm/ims/utils/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 787
+    .line 788
     iget-object v0, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
     const/4 v1, 0x0
@@ -94,17 +94,17 @@
     .locals 3
     .param p1, "msg"    # Landroid/os/Message;
 
-    .line 763
+    .line 764
     const-string v0, "EVENT_AVP_UPGRADE received"
 
     invoke-static {p0, v0}, Lcom/qualcomm/ims/utils/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 764
+    .line 765
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lorg/codeaurora/telephony/utils/AsyncResult;
 
-    .line 765
+    .line 766
     .local v0, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
     if-eqz v0, :cond_1
 
@@ -112,14 +112,14 @@
 
     if-eqz v1, :cond_1
 
-    .line 766
+    .line 767
     iget-object v1, v0, Lorg/codeaurora/telephony/utils/AsyncResult;->userObj:Ljava/lang/Object;
 
     instance-of v1, v1, Ljava/lang/Boolean;
 
     if-eqz v1, :cond_1
 
-    .line 767
+    .line 768
     iget-object v1, v0, Lorg/codeaurora/telephony/utils/AsyncResult;->userObj:Ljava/lang/Object;
 
     check-cast v1, Ljava/lang/Boolean;
@@ -128,24 +128,24 @@
 
     move-result v1
 
-    .line 768
+    .line 769
     .local v1, "shouldNotifyUser":Z
     if-eqz v1, :cond_0
 
-    .line 769
+    .line 770
     const-string v2, "AVP Retry error when Voice call was upgraded to video call"
 
     invoke-static {p0, v2}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 777
+    .line 778
     :cond_0
     const-string v2, "AVP Retry error when Video call was dialed"
 
     invoke-static {p0, v2}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 781
+    .line 782
     .end local v1    # "shouldNotifyUser":Z
     :cond_1
     :goto_0
@@ -153,12 +153,12 @@
 
     invoke-static {v1}, Lorg/codeaurora/ims/ImsCallModification;->access$300(Lorg/codeaurora/ims/ImsCallModification;)V
 
-    .line 782
+    .line 783
     iget-object v1, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
     invoke-static {v1}, Lorg/codeaurora/ims/ImsCallModification;->access$400(Lorg/codeaurora/ims/ImsCallModification;)V
 
-    .line 783
+    .line 784
     return-void
 .end method
 
@@ -166,7 +166,7 @@
     .locals 4
     .param p1, "msg"    # Landroid/os/Message;
 
-    .line 680
+    .line 681
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -185,16 +185,16 @@
 
     invoke-static {p0, v0}, Lcom/qualcomm/ims/utils/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 681
+    .line 682
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lorg/codeaurora/telephony/utils/AsyncResult;
 
-    .line 682
+    .line 683
     .local v0, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
     if-eqz v0, :cond_1
 
-    .line 686
+    .line 687
     iget-object v1, v0, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v1, :cond_0
@@ -207,7 +207,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 687
+    .line 688
     iget-object v1, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
     invoke-static {v1}, Lorg/codeaurora/ims/ImsCallModification;->access$100(Lorg/codeaurora/ims/ImsCallModification;)Lorg/codeaurora/ims/CallModify;
@@ -222,49 +222,49 @@
 
     goto :goto_0
 
-    .line 689
+    .line 690
     :cond_0
     const-string v1, "videocall error during modifyCall"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 695
+    .line 696
     :cond_1
     :goto_0
     iget-object v1, v0, Lorg/codeaurora/telephony/utils/AsyncResult;->userObj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/Message;
 
-    .line 696
+    .line 697
     .local v1, "onComplete":Landroid/os/Message;
     if-eqz v1, :cond_2
 
-    .line 697
+    .line 698
     iget-object v2, v0, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     iget-object v3, v0, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     invoke-static {v1, v2, v3}, Lorg/codeaurora/telephony/utils/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Lorg/codeaurora/telephony/utils/AsyncResult;
 
-    .line 701
+    .line 702
     invoke-virtual {v1}, Landroid/os/Message;->getTarget()Landroid/os/Handler;
 
     move-result-object v2
 
     invoke-virtual {v2, v1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    .line 704
+    .line 705
     :cond_2
     iget-object v2, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
     invoke-static {v2}, Lorg/codeaurora/ims/ImsCallModification;->access$300(Lorg/codeaurora/ims/ImsCallModification;)V
 
-    .line 705
+    .line 706
     iget-object v2, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
     invoke-static {v2}, Lorg/codeaurora/ims/ImsCallModification;->access$400(Lorg/codeaurora/ims/ImsCallModification;)V
 
-    .line 706
+    .line 707
     return-void
 .end method
 
@@ -272,26 +272,26 @@
     .locals 6
     .param p1, "msg"    # Landroid/os/Message;
 
-    .line 710
+    .line 711
     const-string v0, "EVENT_VIDEO_PAUSE_DONE received"
 
     invoke-static {p0, v0}, Lcom/qualcomm/ims/utils/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 711
+    .line 712
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lorg/codeaurora/telephony/utils/AsyncResult;
 
-    .line 712
+    .line 713
     .local v0, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
     if-eqz v0, :cond_4
 
-    .line 713
+    .line 714
     iget-object v1, v0, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v1, :cond_2
 
-    .line 716
+    .line 717
     iget-object v1, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
     invoke-static {v1}, Lorg/codeaurora/ims/ImsCallModification;->access$100(Lorg/codeaurora/ims/ImsCallModification;)Lorg/codeaurora/ims/CallModify;
@@ -300,7 +300,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 717
+    .line 718
     iget-object v1, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
     invoke-static {v1}, Lorg/codeaurora/ims/ImsCallModification;->access$100(Lorg/codeaurora/ims/ImsCallModification;)Lorg/codeaurora/ims/CallModify;
@@ -325,23 +325,23 @@
     :goto_0
     invoke-static {v1, v2}, Lorg/codeaurora/ims/ImsCallModification;->access$502(Lorg/codeaurora/ims/ImsCallModification;Z)Z
 
-    .line 720
+    .line 721
     :cond_1
     iget-object v1, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
     invoke-static {v1}, Lorg/codeaurora/ims/ImsCallModification;->access$300(Lorg/codeaurora/ims/ImsCallModification;)V
 
-    .line 721
+    .line 722
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->clearMultiTaskRetryCount()I
 
-    .line 722
+    .line 723
     iget-object v1, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
     invoke-static {v1}, Lorg/codeaurora/ims/ImsCallModification;->access$400(Lorg/codeaurora/ims/ImsCallModification;)V
 
     goto :goto_1
 
-    .line 726
+    .line 727
     :cond_2
     iget-object v1, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
@@ -351,12 +351,12 @@
 
     if-eqz v1, :cond_3
 
-    .line 727
+    .line 728
     const-string v1, "Error during video pause so retry"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 729
+    .line 730
     const-wide v1, 0x407f400000000000L    # 500.0
 
     new-instance v3, Ljava/util/Random;
@@ -377,7 +377,7 @@
 
     double-to-int v1, v3
 
-    .line 730
+    .line 731
     .local v1, "delay":I
     iget-object v2, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
@@ -397,7 +397,7 @@
 
     invoke-virtual {v2, v3, v4, v5}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 732
+    .line 733
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -414,43 +414,43 @@
 
     invoke-static {p0, v2}, Lcom/qualcomm/ims/utils/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 734
+    .line 735
     iget-object v2, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
     invoke-static {v2}, Lorg/codeaurora/ims/ImsCallModification;->access$708(Lorg/codeaurora/ims/ImsCallModification;)I
 
-    .line 735
+    .line 736
     .end local v1    # "delay":I
     goto :goto_1
 
-    .line 736
+    .line 737
     :cond_3
     const-string v1, "Video Pause retry limit reached."
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 737
+    .line 738
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->clearMultiTaskRetryCount()I
 
-    .line 738
+    .line 739
     iget-object v1, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
     invoke-static {v1}, Lorg/codeaurora/ims/ImsCallModification;->access$300(Lorg/codeaurora/ims/ImsCallModification;)V
 
-    .line 739
+    .line 740
     iget-object v1, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
     invoke-static {v1}, Lorg/codeaurora/ims/ImsCallModification;->access$400(Lorg/codeaurora/ims/ImsCallModification;)V
 
     goto :goto_1
 
-    .line 743
+    .line 744
     :cond_4
     const-string v1, "Error EVENT_VIDEO_PAUSE_DONE ar is null"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 745
+    .line 746
     :goto_1
     return-void
 .end method
@@ -458,7 +458,7 @@
 .method private onVideoPauseRetry()V
     .locals 2
 
-    .line 748
+    .line 749
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -469,7 +469,7 @@
 
     iget-object v1, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
-    .line 749
+    .line 750
     invoke-static {v1}, Lorg/codeaurora/ims/ImsCallModification;->access$700(Lorg/codeaurora/ims/ImsCallModification;)I
 
     move-result v1
@@ -480,10 +480,10 @@
 
     move-result-object v0
 
-    .line 748
+    .line 749
     invoke-static {p0, v0}, Lcom/qualcomm/ims/utils/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 750
+    .line 751
     iget-object v0, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
     invoke-static {v0}, Lorg/codeaurora/ims/ImsCallModification;->access$800(Lorg/codeaurora/ims/ImsCallModification;)Lorg/codeaurora/ims/ImsCallModification$PauseState;
@@ -494,7 +494,7 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 751
+    .line 752
     iget-object v0, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
     invoke-static {v0}, Lorg/codeaurora/ims/ImsCallModification;->access$100(Lorg/codeaurora/ims/ImsCallModification;)Lorg/codeaurora/ims/CallModify;
@@ -503,7 +503,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 752
+    .line 753
     iget-object v0, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
     invoke-static {v0}, Lorg/codeaurora/ims/ImsCallModification;->access$100(Lorg/codeaurora/ims/ImsCallModification;)Lorg/codeaurora/ims/CallModify;
@@ -518,26 +518,26 @@
 
     goto :goto_0
 
-    .line 755
+    .line 756
     :cond_0
     const-string v0, "User pressed home/resume during retry sending new multitask request"
 
     invoke-static {p0, v0}, Lcom/qualcomm/ims/utils/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 756
+    .line 757
     iget-object v0, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
     invoke-static {v0}, Lorg/codeaurora/ims/ImsCallModification;->access$300(Lorg/codeaurora/ims/ImsCallModification;)V
 
-    .line 757
+    .line 758
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->clearMultiTaskRetryCount()I
 
-    .line 758
+    .line 759
     iget-object v0, p0, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->this$0:Lorg/codeaurora/ims/ImsCallModification;
 
     invoke-static {v0}, Lorg/codeaurora/ims/ImsCallModification;->access$400(Lorg/codeaurora/ims/ImsCallModification;)V
 
-    .line 760
+    .line 761
     :cond_1
     :goto_0
     return-void
@@ -549,39 +549,39 @@
     .locals 1
     .param p1, "msg"    # Landroid/os/Message;
 
-    .line 662
+    .line 663
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
     goto :goto_0
 
-    .line 671
+    .line 672
     :pswitch_0
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->onVideoPauseRetry()V
 
-    .line 672
+    .line 673
     goto :goto_0
 
-    .line 668
+    .line 669
     :pswitch_1
     invoke-direct {p0, p1}, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->onVideoPauseDone(Landroid/os/Message;)V
 
-    .line 669
+    .line 670
     goto :goto_0
 
-    .line 665
+    .line 666
     :pswitch_2
     invoke-direct {p0, p1}, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->onModifyCallDone(Landroid/os/Message;)V
 
-    .line 666
+    .line 667
     goto :goto_0
 
-    .line 674
+    .line 675
     :pswitch_3
     invoke-direct {p0, p1}, Lorg/codeaurora/ims/ImsCallModification$ImsCallModificationHandler;->onAvpRetry(Landroid/os/Message;)V
 
-    .line 677
+    .line 678
     :goto_0
     return-void
 

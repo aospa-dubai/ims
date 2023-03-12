@@ -1579,7 +1579,7 @@
     .line 497
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSubController;->mTm:Landroid/telephony/TelephonyManager;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getActiveModemCount()I
 
@@ -1589,7 +1589,7 @@
 
     if-gt v0, v1, :cond_0
 
-    goto :goto_1
+    goto/16 :goto_2
 
     .line 503
     :cond_0
@@ -1615,28 +1615,47 @@
 
     .line 509
     :cond_1
+    const/4 v2, 0x0
+
     if-nez p1, :cond_2
 
-    move v2, v1
+    move v3, v1
 
     goto :goto_0
 
     :cond_2
-    const/4 v2, 0x0
+    move v3, v2
 
     .line 510
-    .local v2, "isPrimarySubscription":Z
+    .local v3, "isPrimarySubscription":Z
     :goto_0
     invoke-virtual {v0}, Lorg/codeaurora/ims/ImsSenderRxr;->getRadioState()Lorg/codeaurora/ims/ImsPhoneCommandsInterface$RadioState;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Lorg/codeaurora/ims/ImsPhoneCommandsInterface$RadioState;->isAvailable()Z
+    if-eqz v4, :cond_3
 
-    move-result v3
+    .line 511
+    invoke-virtual {v0}, Lorg/codeaurora/ims/ImsSenderRxr;->getRadioState()Lorg/codeaurora/ims/ImsPhoneCommandsInterface$RadioState;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lorg/codeaurora/ims/ImsPhoneCommandsInterface$RadioState;->isAvailable()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    move v2, v1
+
+    goto :goto_1
+
+    :cond_3
+    nop
 
     .line 512
-    .local v3, "isRadioAvailable":Z
+    .local v2, "isRadioAvailable":Z
+    :goto_1
     iget-object v4, p0, Lorg/codeaurora/ims/ImsSubController;->mHandler:Landroid/os/Handler;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1646,7 +1665,7 @@
     invoke-virtual {v0, v4, v1, v5}, Lorg/codeaurora/ims/ImsSenderRxr;->registerForImsSubConfigChanged(Landroid/os/Handler;ILjava/lang/Object;)V
 
     .line 513
-    if-eqz v3, :cond_3
+    if-eqz v2, :cond_4
 
     .line 514
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSubController;->mHandler:Landroid/os/Handler;
@@ -1664,8 +1683,8 @@
     invoke-virtual {v0, v1}, Lorg/codeaurora/ims/ImsSenderRxr;->getImsSubConfig(Landroid/os/Message;)V
 
     .line 519
-    :cond_3
-    if-nez v2, :cond_4
+    :cond_4
+    if-nez v3, :cond_5
 
     .line 520
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1692,7 +1711,7 @@
     return-void
 
     .line 525
-    :cond_4
+    :cond_5
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSubController;->mHandler:Landroid/os/Handler;
 
     const/4 v4, 0x7
@@ -1706,7 +1725,7 @@
     invoke-virtual {v0, v1, v4, v5}, Lorg/codeaurora/ims/ImsSenderRxr;->registerForMultiSimVoiceCapabilityChanged(Landroid/os/Handler;ILjava/lang/Object;)V
 
     .line 527
-    if-eqz v3, :cond_5
+    if-eqz v2, :cond_6
 
     .line 528
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSubController;->mHandler:Landroid/os/Handler;
@@ -1726,15 +1745,15 @@
     invoke-virtual {v0, v1}, Lorg/codeaurora/ims/ImsSenderRxr;->queryMultiSimVoiceCapability(Landroid/os/Message;)V
 
     .line 531
-    :cond_5
+    :cond_6
     return-void
 
     .line 498
     .end local v0    # "ci":Lorg/codeaurora/ims/ImsSenderRxr;
-    .end local v2    # "isPrimarySubscription":Z
-    .end local v3    # "isRadioAvailable":Z
-    :cond_6
-    :goto_1
+    .end local v2    # "isRadioAvailable":Z
+    .end local v3    # "isPrimarySubscription":Z
+    :cond_7
+    :goto_2
     const-string v0, "registerForRadioEvents: Single SIM mode"
 
     invoke-static {p0, v0}, Lcom/qualcomm/ims/utils/Log;->v(Ljava/lang/Object;Ljava/lang/String;)V
